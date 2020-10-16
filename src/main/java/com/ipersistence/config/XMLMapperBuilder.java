@@ -1,7 +1,5 @@
-package com.ipersistence.sqlSession;
+package com.ipersistence.config;
 
-import com.ipersistence.Configuration;
-import com.ipersistence.MappedStatement;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -17,8 +15,7 @@ public class XMLMapperBuilder {
         this.configuration = configuration;
     }
 
-    public void parse(InputStream inputStream) throws DocumentException,
-            ClassNotFoundException {
+    public void parse(InputStream inputStream) throws DocumentException{
         Document document = new SAXReader().read(inputStream);
         Element rootElement = document.getRootElement();
         String namespace = rootElement.attributeValue("namespace");
@@ -28,12 +25,10 @@ public class XMLMapperBuilder {
 
             String paramterType = element.attributeValue("paramterType");
             String resultType = element.attributeValue("resultType"); //输入参数
-            Class<?> paramterTypeClass = getClassType(paramterType); //返回结果class
-            Class<?> resultTypeClass = getClassType(resultType); //statementId
             String key = namespace + "." + id; //sql语句
             String textTrim = element.getTextTrim(); //封装 mappedStatement
             MappedStatement mappedStatement = new MappedStatement();
-            mappedStatement.setId(Integer.valueOf(id));
+            mappedStatement.setId(id);
             mappedStatement.setParameterType(paramterType);
             mappedStatement.setResultType(resultType);
             mappedStatement.setSql(textTrim);
@@ -41,11 +36,4 @@ public class XMLMapperBuilder {
             configuration.getMappedStatementMap().put(key, mappedStatement);
         }
     }
-
-    private Class<?> getClassType(String paramterType) throws
-            ClassNotFoundException {
-        Class<?> aclass = Class.forName(paramterType);
-        return aclass;
-    }
-
 }

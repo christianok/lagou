@@ -1,4 +1,4 @@
-package com.ipersistence;
+package com.ipersistence.config;
 
 import com.ipersistence.utils.ParameterMapping;
 

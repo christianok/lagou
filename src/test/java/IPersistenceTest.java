@@ -21,7 +21,7 @@ public class IPersistenceTest {
 
         User user = new User();
         user.setId(1);
-        user.setUsername("hello");
+        user.setUsername("lucy");
 
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
         User user1 = userMapper.selectOne(user);

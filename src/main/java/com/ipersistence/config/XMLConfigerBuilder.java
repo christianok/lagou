@@ -1,6 +1,6 @@
-package com.ipersistence.sqlSession;
+package com.ipersistence.config;
 
-import com.ipersistence.Configuration;
+import com.ipersistence.io.Resources;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -15,7 +15,7 @@ import java.util.Properties;
 public class XMLConfigerBuilder {
     private Configuration configuration;
 
-    public XMLConfigerBuilder(Configuration configuration) {
+    public XMLConfigerBuilder() {
         this.configuration = new Configuration();
     }
 
@@ -36,6 +36,19 @@ public class XMLConfigerBuilder {
         comboPooledDataSource.setJdbcUrl(properties.getProperty("jdbcUrl"));
         comboPooledDataSource.setUser(properties.getProperty("username"));
         comboPooledDataSource.setPassword(properties.getProperty("password"));
+
+        configuration.setDataSource(comboPooledDataSource);
+
+        //mapper.xml解析: 拿到路径--字节输入流---dom4j进行解析
+        List<Element> mapperList = rootElement.selectNodes("//mapper");
+
+        for (Element element : mapperList) {
+            String mapperPath = element.attributeValue("resource");
+            InputStream resourceAsSteam = Resources.getResourceAsSteam(mapperPath);
+            XMLMapperBuilder xmlMapperBuilder = new XMLMapperBuilder(configuration);
+            xmlMapperBuilder.parse(resourceAsSteam);
+
+        }
 
         return configuration;
     }

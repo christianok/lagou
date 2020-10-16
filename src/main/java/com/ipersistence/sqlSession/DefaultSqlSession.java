@@ -1,11 +1,10 @@
 package com.ipersistence.sqlSession;
 
-import com.ipersistence.Configuration;
-import com.ipersistence.MappedStatement;
+import com.ipersistence.config.Configuration;
+import com.ipersistence.config.MappedStatement;
 
 import java.lang.reflect.*;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DefaultSqlSession implements SqlSession {
@@ -41,25 +40,33 @@ public class DefaultSqlSession implements SqlSession {
 
     @Override
     public <T> T getMapper(Class<?> mapperClass) {
-        T o = (T) Proxy.newProxyInstance(mapperClass.getClassLoader(), new Class[]{mapperClass}, new InvocationHandler() {
+        // 使用JDK动态代理来为Dao接口生成代理对象，并返回
+
+        Object proxyInstance = Proxy.newProxyInstance(DefaultSqlSession.class.getClassLoader(), new Class[]{mapperClass}, new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                // selectOne
+                // 底层都还是去执行JDBC代码 //根据不同情况，来调用selctList或者selectOne
+                // 准备参数 1：statmentid :sql语句的唯一标识：namespace.id= 接口全限定名.方法名
+                // 方法名：findAll
                 String methodName = method.getName();
-                // className:namespace
                 String className = method.getDeclaringClass().getName();
-                // statementid
-                String key = className + "." + methodName;
-                MappedStatement mappedStatement = configuration.getMappedStatementMap().get(key);
+
+                String statementId = className+"."+methodName;
+
+                // 准备参数2：params:args
+                // 获取被调用方法的返回值类型
                 Type genericReturnType = method.getGenericReturnType();
-                ArrayList arrayList = new ArrayList<>(); //判断是否实现泛型类型参数化
-                if (genericReturnType instanceof ParameterizedType) {
-                    return selectList(key, args);
+                // 判断是否进行了 泛型类型参数化
+                if(genericReturnType instanceof ParameterizedType){
+                    List<Object> objects = selectList(statementId, args);
+                    return objects;
                 }
-                return selectOne(key, args);
+
+                return selectOne(statementId,args);
+
             }
         });
 
-        return o;
+        return (T) proxyInstance;
     }
 }

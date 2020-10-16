@@ -1,6 +1,6 @@
 package com.ipersistence.sqlSession;
 
-import com.ipersistence.Configuration;
+import com.ipersistence.config.Configuration;
 
 public class DefaultSqlSessionFactory implements SqlSessionFactory {
     private Configuration configuration;

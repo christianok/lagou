@@ -1,7 +1,7 @@
-package com.ipersistence;
+package com.ipersistence.config;
 
 public class MappedStatement {
-    private Integer id;
+    private String id;
 
     private String sql;
 
@@ -9,13 +9,6 @@ public class MappedStatement {
 
     private String resultType;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getSql() {
         return sql;
@@ -39,5 +32,13 @@ public class MappedStatement {
 
     public void setResultType(String resultType) {
         this.resultType = resultType;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
