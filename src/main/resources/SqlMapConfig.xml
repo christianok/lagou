@@ -1,9 +1,11 @@
 <configuration>
-    <!--数据库连接信息-->
-    <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-    <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/apollo?useUnicode=true;characterEncoding=utf8;useSSL=false;autoReconnect=true;failOverReadOnly=false;autoReconnectForPools=true"></property>
-    <property name="user" value="root"></property>
-    <property name="password" value="123456"></property>
+    <datasource>
+        <!--数据库连接信息-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/apollo?useUnicode=true;characterEncoding=utf8;useSSL=false;autoReconnect=true;failOverReadOnly=false;autoReconnectForPools=true"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123456"></property>
+    </datasource>
     <!--引入sql配置信息-->
     <mapper resource="mapper.xml"></mapper>
 </configuration>

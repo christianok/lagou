@@ -19,18 +19,22 @@ public class XMLConfigerBuilder {
         this.configuration = new Configuration();
     }
 
-    public Configuration parseConfiguration(InputStream inputStream) throws
-            DocumentException, PropertyVetoException, ClassNotFoundException {
+    /**
+     * 该方法就是使用dom4j对配置文件进行解析，封装Configuration
+     */
+    public Configuration parseConfig(InputStream inputStream) throws DocumentException, PropertyVetoException {
+
         Document document = new SAXReader().read(inputStream);
+        //<configuration>
         Element rootElement = document.getRootElement();
-        List<Element> propertyElements = rootElement.selectNodes("//property");
+        List<Element> list = rootElement.selectNodes("//property");
         Properties properties = new Properties();
-        for (Element propertyElement : propertyElements) {
-            String name = propertyElement.attributeValue("name");
-            String value = propertyElement.attributeValue("value");
-            properties.setProperty(name, value);
+        for (Element element : list) {
+            String name = element.attributeValue("name");
+            String value = element.attributeValue("value");
+            properties.setProperty(name,value);
         }
-        //连接池
+
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setDriverClass(properties.getProperty("driverClass"));
         comboPooledDataSource.setJdbcUrl(properties.getProperty("jdbcUrl"));

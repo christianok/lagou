@@ -9,11 +9,11 @@ import java.io.InputStream;
 
 public class SqlSessionFactoryBuilder {
 
-    public SqlSessionFactory build(InputStream inputStream) throws DocumentException, PropertyVetoException, ClassNotFoundException {
+    public SqlSessionFactory build(InputStream inputStream) throws DocumentException, PropertyVetoException {
         //1.解析配置文件，封装Configuration
         XMLConfigerBuilder xmlConfigerBuilder = new XMLConfigerBuilder();
 
-        Configuration configuration = xmlConfigerBuilder.parseConfiguration(inputStream);
+        Configuration configuration = xmlConfigerBuilder.parseConfig(inputStream);
 
         //2.创建 sqlSessionFactory
         return new DefaultSqlSessionFactory(configuration);
