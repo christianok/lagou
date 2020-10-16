@@ -1,6 +1,6 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
-import persistence.Configuration;
+import com.ipersistence.Configuration;
 import org.dom4j.DocumentException;
 
 import java.beans.PropertyVetoException;

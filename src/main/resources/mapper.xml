@@ -1,9 +1,8 @@
 <mapper namespace = "user">
-    <select id="selectOne" paramterType="com.lagou.pojo.User"
-            resultType="com.lagou.pojo.User">
+    <select id="selectOne" paramterType="com.ipersistence.pojo.User" resultType="com.ipersistence.pojo.User">
         select * from user where id = #{id} and username =#{username}
     </select>
-    <select id="selectList" resultType="com.lagou.pojo.User">
+    <select id="selectList" resultType="com.ipersistence.pojo.User">
         select * from user
     </select>
 </mapper>

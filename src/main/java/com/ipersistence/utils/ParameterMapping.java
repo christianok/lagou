@@ -1,4 +1,4 @@
-package persistence.utils;
+package com.ipersistence.utils;
 
 public class ParameterMapping {
 

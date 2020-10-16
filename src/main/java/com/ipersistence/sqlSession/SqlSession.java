@@ -1,4 +1,4 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -1,11 +1,11 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
+import com.ipersistence.Configuration;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import persistence.Configuration;
 
 import java.beans.PropertyVetoException;
 import java.io.InputStream;

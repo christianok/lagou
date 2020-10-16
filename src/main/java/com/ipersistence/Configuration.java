@@ -1,4 +1,4 @@
-package persistence;
+package com.ipersistence;
 
 import javax.sql.DataSource;
 import java.util.HashMap;

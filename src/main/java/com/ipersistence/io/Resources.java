@@ -1,4 +1,4 @@
-package persistence.io;
+package com.ipersistence.io;
 
 import java.io.InputStream;
 

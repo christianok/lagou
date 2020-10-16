@@ -1,11 +1,11 @@
-import persistence.io.Resources;
-import persistence.sqlSession.SqlSessionFactory;
-import persistence.sqlSession.SqlSessionFactoryBuilder;
-import persistence.entity.User;
-import persistence.mapper.UserMapper;
+import com.ipersistence.io.Resources;
+import com.ipersistence.sqlSession.SqlSessionFactory;
+import com.ipersistence.sqlSession.SqlSessionFactoryBuilder;
+import com.ipersistence.pojo.User;
+import com.ipersistence.mapper.UserMapper;
 import org.dom4j.DocumentException;
 import org.junit.Test;
-import persistence.sqlSession.SqlSession;
+import com.ipersistence.sqlSession.SqlSession;
 
 import java.beans.PropertyVetoException;
 import java.io.InputStream;

@@ -1,11 +1,11 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
+import com.ipersistence.Configuration;
+import com.ipersistence.MappedStatement;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import persistence.Configuration;
-import persistence.MappedStatement;
 
 import java.io.InputStream;
 import java.util.List;

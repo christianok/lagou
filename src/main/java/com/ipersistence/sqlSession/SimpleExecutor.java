@@ -1,11 +1,11 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
-import persistence.Configuration;
-import persistence.MappedStatement;
-import persistence.BoundSql;
-import persistence.utils.GenericTokenParser;
-import persistence.utils.ParameterMapping;
-import persistence.utils.ParameterMappingTokenHandler;
+import com.ipersistence.BoundSql;
+import com.ipersistence.Configuration;
+import com.ipersistence.MappedStatement;
+import com.ipersistence.utils.GenericTokenParser;
+import com.ipersistence.utils.ParameterMapping;
+import com.ipersistence.utils.ParameterMappingTokenHandler;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;

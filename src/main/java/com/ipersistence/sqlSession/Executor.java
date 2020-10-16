@@ -1,7 +1,7 @@
-package persistence.sqlSession;
+package com.ipersistence.sqlSession;
 
-import persistence.Configuration;
-import persistence.MappedStatement;
+import com.ipersistence.Configuration;
+import com.ipersistence.MappedStatement;
 
 import java.sql.SQLException;
 import java.util.List;

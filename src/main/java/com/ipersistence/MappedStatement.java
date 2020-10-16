@@ -1,4 +1,4 @@
-package persistence;
+package com.ipersistence;
 
 public class MappedStatement {
     private Integer id;

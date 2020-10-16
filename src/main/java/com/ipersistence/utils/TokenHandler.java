@@ -13,7 +13,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
-package persistence.utils;
+package com.ipersistence.utils;
 
 /**
  * @author Clinton Begin

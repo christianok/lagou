@@ -1,6 +1,6 @@
-package persistence;
+package com.ipersistence;
 
-import persistence.utils.ParameterMapping;
+import com.ipersistence.utils.ParameterMapping;
 
 import java.util.ArrayList;
 import java.util.List;

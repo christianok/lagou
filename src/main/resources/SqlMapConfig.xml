@@ -5,5 +5,5 @@
     <property name="user" value="root"></property>
     <property name="password" value="123456"></property>
     <!--引入sql配置信息-->
-    <mapper resource="persistence.mapper.xml"></mapper>
+    <mapper resource="mapper.xml"></mapper>
 </configuration>
