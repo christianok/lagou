@@ -1,4 +1,4 @@
-package persistence.executor;
+package persistence.sqlSession;
 
 import persistence.Configuration;
 import persistence.MappedStatement;

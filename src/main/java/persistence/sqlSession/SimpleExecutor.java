@@ -1,4 +1,4 @@
-package persistence.executor;
+package persistence.sqlSession;
 
 import persistence.Configuration;
 import persistence.MappedStatement;
@@ -7,10 +7,8 @@ import persistence.utils.GenericTokenParser;
 import persistence.utils.ParameterMapping;
 import persistence.utils.ParameterMappingTokenHandler;
 
-import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.util.ArrayList;

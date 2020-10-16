@@ -2,8 +2,6 @@ package persistence.sqlSession;
 
 import persistence.Configuration;
 import persistence.MappedStatement;
-import persistence.executor.Executor;
-import persistence.executor.SimpleExecutor;
 
 import java.lang.reflect.*;
 import java.sql.SQLException;

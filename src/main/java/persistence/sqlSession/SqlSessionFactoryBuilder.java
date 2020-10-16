@@ -1,10 +1,7 @@
 package persistence.sqlSession;
 
 import persistence.Configuration;
-import persistence.builder.XMLConfigerBuilder;
 import org.dom4j.DocumentException;
-import persistence.sqlSession.DefaultSqlSessionFactory;
-import persistence.sqlSession.SqlSessionFactory;
 
 import java.beans.PropertyVetoException;
 import java.io.InputStream;

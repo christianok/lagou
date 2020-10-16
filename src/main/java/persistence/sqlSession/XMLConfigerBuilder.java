@@ -1,4 +1,4 @@
-package persistence.builder;
+package persistence.sqlSession;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.dom4j.Document;
